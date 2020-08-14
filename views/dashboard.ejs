@@ -1,29 +1,11 @@
 <%- include('header') %>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">CODE H-ACK</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/homepage">practice <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/compete">compete</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
 <br><br>
 
 <p name="username" id="username"><%= usern %></p>
 <p name="username" id="username"><%= rating %></p>
 <p name="username" id="username"><%= rank %></p>
+
+<hr>
 
 <form action="/homepage" method="POST">
     <label for="tags">Choose question type:</label>
@@ -47,11 +29,19 @@
     <input type="submit" value="search">
 </form>
 <br><br>
-<%data.forEach(function(ques){ %>
+<%QUES.forEach(function(ques){ %>
 <a href="https://codeforces.com/problemset/problem/<%=ques['contestId'] %>/<%=ques['index']%>"
     target="_blank"><%= ques["name"]%></a>
 <br>
 <%})%>
 
+<hr>
+
+<h5>ques done by user </h5>
+
+<%DATA.forEach(function(info){ %>
+<p><%= info%></p>
+<br>
+<%})%>
 
 <%- include('footer') %>
